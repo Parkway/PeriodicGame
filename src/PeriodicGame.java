@@ -27,6 +27,7 @@ public class PeriodicGame {
         if (gameType.toLowerCase().contains("atom".toLowerCase()) || gameType.toLowerCase().contains("num".toLowerCase())) {
             System.out.println("In this game, you have to enter the atomic number of the hidden element to win.\nYou have " + guessCount + " tries. Good luck."
                     + "\nThe element is: " + elementName);
+
             while (guessCount > 0) {
                 guessCount--;
                 int numGuess = scn.nextInt();
@@ -40,6 +41,7 @@ public class PeriodicGame {
                 }
             }
         } else if (gameType.toLowerCase().contains("ele".toLowerCase()) || gameType.toLowerCase().contains("nam")) {
+
             System.out.println("In this game, you need to enter the name of the element represented by the atomic number to win.\nYou have " + guessCount + " tries. Good luck."
                     + "\nThe atomic number is: " + elementNumber);
             while(guessCount > 0) {
