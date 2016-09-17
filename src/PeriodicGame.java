@@ -24,7 +24,7 @@ public class PeriodicGame {
         String elementName = elementList[elementNumber];
         System.out.println("Which do you need practice with, Atomic Numbers, or Element Names?");
         String gameType = scn.nextLine();
-        if (gameType.toLowerCase().contains("atom".toLowerCase())) {
+        if (gameType.toLowerCase().contains("atom".toLowerCase()) || gameType.toLowerCase().contains("num".toLowerCase())) {
             System.out.println("In this game, you have to enter the atomic number of the hidden element to win.\nYou have three tries. Good luck."
                     + "\nThe element is: " + elementName);
             while (guessCount > 0) {
@@ -39,14 +39,14 @@ public class PeriodicGame {
                     System.out.println("You lose. The correct answer was: " + elementNumber);
                 }
             }
-        } else if (gameType.toLowerCase().contains("ele".toLowerCase())) {
+        } else if (gameType.toLowerCase().contains("ele".toLowerCase()) || gameType.toLowerCase().contains("nam")) {
             System.out.println("In this game, you need to enter the name of the element represented by the atomic number to win.\nYou have three tries. Good luck."
                     + "\nThe atomic number is: " + elementNumber);
             while(guessCount > 0) {
                 guessCount--;
                 String eleGuess = scn.nextLine();
                 if(eleGuess.toLowerCase().equals(elementName.toLowerCase())) {
-                    System.out.println("You won! The Element with Atomic Number " + elementNumber + " is " + elementName);
+                    System.out.println("You won! The Element with Atomic Number " + elementNumber + " is " + elementName + ".");
                     System.exit(0);
                 } else {
                     System.out.println("Not quite. " + guessCount + " guesses left.");
