@@ -28,8 +28,8 @@
       <file leaf-file-name="PeriodicGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PeriodicGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="48" column="126" selection-start-line="48" selection-start-column="126" selection-end-line="48" selection-end-column="126" />
+            <state relative-caret-position="663">
+              <caret line="42" column="157" selection-start-line="42" selection-start-column="157" selection-end-line="42" selection-end-column="157" />
               <folding />
             </state>
           </provider>
@@ -423,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1474152510101</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Adjusted input values for String gameType.">
+      <created>1474153806142</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1474153806142</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -475,7 +482,8 @@
     <MESSAGE value="Finished periodic table list. More details to come." />
     <MESSAGE value="Done! Will keep adding to it though! I love this." />
     <MESSAGE value="Absolutely rebuilt it. Totally new function. Fully fledged chem game now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Absolutely rebuilt it. Totally new function. Fully fledged chem game now." />
+    <MESSAGE value="Adjusted input values for String gameType." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted input values for String gameType." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -498,8 +506,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PeriodicGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="48" column="126" selection-start-line="48" selection-start-column="126" selection-end-line="48" selection-end-column="126" />
+        <state relative-caret-position="663">
+          <caret line="42" column="157" selection-start-line="42" selection-start-column="157" selection-end-line="42" selection-end-column="157" />
           <folding />
         </state>
       </provider>
