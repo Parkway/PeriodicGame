@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class PeriodicGame {
     public static void main(String[] args) {
+        System.out.println("There are 118 elements. How many do you know?");
         game();
     }
     private static void game() {
@@ -24,7 +25,6 @@ public class PeriodicGame {
 
         int elementLength = elementList.length;
         int elementNumber = (int) (Math.random() * elementLength);
-        System.out.println("There are " + (elementLength - 1) + " elements. How many do you know?");
         String elementName = elementList[elementNumber];
 
         System.out.println("Which do you need practice with, Atomic Numbers, or Element Names?");
@@ -52,7 +52,7 @@ public class PeriodicGame {
                         }
                     }
 
-                        } if (guessCount == 0) {
+                    } if (guessCount == 0) {
                         System.out.println("You lose. The correct answer was: " + elementNumber);
                         System.out.println("Would you like to continue playing? Enter [1] for yes, and [2] for no.");
                         int again = scn.nextInt();
