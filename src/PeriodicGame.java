@@ -8,7 +8,7 @@ public class PeriodicGame { //Starts class PeriodicGame
     private static void game() { //Game method
         Scanner scn = new Scanner(System.in); //Scanner for Sys.in
         int guessCount = 3; //Number of guesses
-        String[] elementList = {"AddOneium","Hydrogen","Helium", "Lithium", "Beryllium", "Boron", "Carbon", "Nitrogen", "" +
+        String[] elementList = {"","Hydrogen","Helium", "Lithium", "Beryllium", "Boron", "Carbon", "Nitrogen", "" +
                 "Oxygen", "Fluorine", "Neon", "Sodium", "Magnesium", "Aluminum", "Silicon", "Phosphorous", "Sulfur", "" +
                 "Chlorine", "Argon", "Potassium", "Calcium", "Scandium", "Titanium", "Vanadium", "Chromium", "Manganese", "" +
                 "Iron", "Cobalt", "Nickel", "Copper", "Zinc", "Gallium", "Germanium", "Arsenic", "Selenium", "Bromine", "" +
@@ -21,13 +21,13 @@ public class PeriodicGame { //Starts class PeriodicGame
                 "Uranium", "Neptunium","Plutonium","Americium", "Curium", "Berkelium", "Californium", "Einsteinium", "Fermium", "" +
                 "Mendelevium", "Nobelium", "Lawrencium", "Rutherfordium", "Dubnium", "Seaborgium", "Bohrium", "Hassium", "" +
                 "Meitnerium", "Darmstadtium", "Roentgenium", "Copernicium", "Nihonium", "Flerovium", "Moscovium", "" +
-                "Livermorium", "Tennessine", "Oganesson"}; //List of allllll the elements to allow for selections.
+                "Livermorium", "Tennessine", "Oganesson"}; //Ordered list of allllll the elements to allow for selections.
 
         int elementLength = elementList.length; //Determines length of elementList{}
         int elementNumber = (int) (Math.random() * elementLength); //Pulls random number from elementLength()
         String elementName = elementList[elementNumber]; //Converts number back to string for initial input.
 
-        System.out.println("Which do you need practice with, Atomic Numbers, or Element Names?");
+        System.out.println("Which do you need practice with, Atomic Numbers, or Element Names?" + elementLength);
         String gameType = scn.nextLine();
         if (gameType.toLowerCase().contains("atom".toLowerCase()) || gameType.toLowerCase().contains("num".toLowerCase())) {
             /*If user enters any text containing "atom" or "num", start Atomic Number game.
@@ -48,6 +48,8 @@ public class PeriodicGame { //Starts class PeriodicGame
                         System.out.println("Good bye.");
                         System.exit(0); //Kill program :'(
                     }
+                } else {
+                    System.out.println("Not quite right. " + guessCount + " guesses remaining.");
                 }
                 if (guessCount == 0) {
                     System.out.println("You lose. The correct answer was: " + elementNumber);
