@@ -5,7 +5,10 @@ public class PeriodicGame { //Starts class PeriodicGame
         print("There are 118 elements. How many do you know?"); //Displays text to user
         game(); //Calls game method to allow for recursion.
     }
-    private static void stringRepeat() {
+    private static void print(String s){ //I am far too lazy to type System.out.println(); this man times. This ought to speed it up.
+        System.out.println(s);
+    }
+    private static void stringRepeat() { //Removes four separate code blocks by making one method.
         Scanner stringRep = new Scanner(System.in);
         print("Would you like to continue playing?");
         String again = stringRep.nextLine();
@@ -16,9 +19,6 @@ public class PeriodicGame { //Starts class PeriodicGame
             // Look up three lines for reasoning.
             System.exit(0);
         }
-    }
-    private static void print(String s){ //I am far too lazy to type System.out.println(); this man times. This ought to speed it up.
-        System.out.println(s);
     }
     private static void game() { //Game method
         Scanner scn = new Scanner(System.in); //Scanner for Sys.in
@@ -55,7 +55,7 @@ public class PeriodicGame { //Starts class PeriodicGame
                 int numGuess = scn.nextInt();
                 if (numGuess == elementNumber) { // If guess = the correct number:
                     print("You got it! The atomic number for " + elementName + " is " + elementNumber + "!");
-                    stringRepeat();
+                    stringRepeat(); //Call repeat method.
                 } else {
                     print("Not quite right. " + guessCount + " guesses remaining.");
                 }
@@ -83,7 +83,7 @@ public class PeriodicGame { //Starts class PeriodicGame
                     stringRepeat();
                 }
             }
-        } else {
+        } else { //If input is not one of the options, do this:
             print(gameType + " is not an option. Try again.");
             game();
         }
