@@ -5,6 +5,18 @@ public class PeriodicGame { //Starts class PeriodicGame
         print("There are 118 elements. How many do you know?"); //Displays text to user
         game(); //Calls game method to allow for recursion.
     }
+    private static void stringRepeat() {
+        Scanner stringRep = new Scanner(System.in);
+        print("Would you like to continue playing?");
+        String again = stringRep.nextLine();
+        if (again.toLowerCase().contains("y".toLowerCase())) { //If answer has "y" in it, interpret as yes.
+            // Too many variations of "Yeah","Yes","Yah","Ya","etc"
+            game();
+        } else if (again.toLowerCase().contains("n".toLowerCase())) { //If answer has "n", interpret as no.
+            // Look up three lines for reasoning.
+            System.exit(0);
+        }
+    }
     private static void print(String s){ //I am far too lazy to type System.out.println(); this man times. This ought to speed it up.
         System.out.println(s);
     }
@@ -43,27 +55,13 @@ public class PeriodicGame { //Starts class PeriodicGame
                 int numGuess = scn.nextInt();
                 if (numGuess == elementNumber) { // If guess = the correct number:
                     print("You got it! The atomic number for " + elementName + " is " + elementNumber + "!");
-                    print("Would you like to continue playing? Enter [1] for yes, and [2] for no."); //Can't do strings because InputMismatch exceptions. Not sure how to fix.
-                    int again = scn.nextInt();
-                    if (again == 1) {
-                        game(); //Recursively calls function to start game over.
-                    } else if (again == 2) {
-                        print("Good bye.");
-                        System.exit(0); //Kill program :'(
-                    }
+                    stringRepeat();
                 } else {
                     print("Not quite right. " + guessCount + " guesses remaining.");
                 }
                 if (guessCount == 0) {
                     print("You lose. The correct answer was: " + elementNumber);
-                    print("Would you like to continue playing? Enter [1] for yes, and [2] for no.");
-                    int again = scn.nextInt();
-                    if (again == 1) {
-                        game();
-                    } else if (again == 2) {
-                        print("Good bye.");
-                        System.exit(0);
-                    }
+                    stringRepeat();
                 }
             }
         } else if (gameType.toLowerCase().contains("ele".toLowerCase()) || gameType.toLowerCase().contains("nam")) {
@@ -77,28 +75,12 @@ public class PeriodicGame { //Starts class PeriodicGame
                 String eleGuess = scn.nextLine();
                 if(eleGuess.toLowerCase().equals(elementName.toLowerCase())) {
                     print("You won! The Element with Atomic Number " + elementNumber + " is " + elementName + ".");
-                    print("Would you like to continue playing?");
-                    String again = scn.nextLine();
-                    if (again.toLowerCase().contains("y".toLowerCase())) { //If answer has "y" in it, interpret as yes.
-                        // Too many variations of "Yeah","Yes","Yah","Ya","etc"
-                        game();
-                    } else if (again.toLowerCase().contains("n".toLowerCase())) { //If answer has "n", interpret as no.
-                        // Look up three lines for reasoning.
-                        System.exit(0);
-                    }
+                    stringRepeat();
                     } else {
                     print("Not quite. " + guessCount + " guesses left.");
                     } if (guessCount == 0) {
                     print("You lose. The correct answer was: " + elementName);
-                    print("Would you like to continue playing?");
-
-                    String again = scn.nextLine();
-                    if (again.toLowerCase().contains("y".toLowerCase())) {
-                        game();
-                    } else if (again.toLowerCase().contains("n".toLowerCase())) {
-                        print("Good bye.");
-                        System.exit(0);
-                    }
+                    stringRepeat();
                 }
             }
         } else {
