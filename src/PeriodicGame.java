@@ -2,8 +2,11 @@ import java.util.Scanner; //Text input
 
 public class PeriodicGame { //Starts class PeriodicGame
     public static void main(String[] args) { //Starts main method
-        System.out.println("There are 118 elements. How many do you know?"); //Displays text to user
+        print("There are 118 elements. How many do you know?"); //Displays text to user
         game(); //Calls game method to allow for recursion.
+    }
+    private static void print(String s){ //I am far too lazy to type System.out.println(); this man times. This ought to speed it up.
+        System.out.println(s);
     }
     private static void game() { //Game method
         Scanner scn = new Scanner(System.in); //Scanner for Sys.in
@@ -27,38 +30,38 @@ public class PeriodicGame { //Starts class PeriodicGame
         int elementNumber = (int) (Math.random() * elementLength); //Pulls random number from elementLength()
         String elementName = elementList[elementNumber]; //Converts number back to string for initial input.
 
-        System.out.println("Which do you need practice with, Atomic Numbers, or Element Names?");
+        print("Which do you need practice with, Atomic Numbers, or Element Names?");
         String gameType = scn.nextLine();
         if (gameType.toLowerCase().contains("atom".toLowerCase()) || gameType.toLowerCase().contains("num".toLowerCase())) {
             /*If user enters any text containing "atom" or "num", start Atomic Number game.
             ATOMIC GAME */
-            System.out.println("In this game, you have to enter the atomic number of the element to win."
+            print("In this game, you have to enter the atomic number of the element to win."
                     + "\nYou have " + guessCount + " tries. Good luck."
                     + "\nThe element is: " + elementName);
             while (guessCount > 0) { //While loop. While guessCount is more than 0(Starts at 3), do that stuff down below.
                 guessCount--; //Decrements one from guessCount variable.
                 int numGuess = scn.nextInt();
                 if (numGuess == elementNumber) { // If guess = the correct number:
-                    System.out.println("You got it! The atomic number for " + elementName + " is " + elementNumber + "!");
-                    System.out.println("Would you like to continue playing? Enter [1] for yes, and [2] for no."); //Can't do strings because InputMismatch exceptions. Not sure how to fix.
+                    print("You got it! The atomic number for " + elementName + " is " + elementNumber + "!");
+                    print("Would you like to continue playing? Enter [1] for yes, and [2] for no."); //Can't do strings because InputMismatch exceptions. Not sure how to fix.
                     int again = scn.nextInt();
                     if (again == 1) {
                         game(); //Recursively calls function to start game over.
                     } else if (again == 2) {
-                        System.out.println("Good bye.");
+                        print("Good bye.");
                         System.exit(0); //Kill program :'(
                     }
                 } else {
-                    System.out.println("Not quite right. " + guessCount + " guesses remaining.");
+                    print("Not quite right. " + guessCount + " guesses remaining.");
                 }
                 if (guessCount == 0) {
-                    System.out.println("You lose. The correct answer was: " + elementNumber);
-                    System.out.println("Would you like to continue playing? Enter [1] for yes, and [2] for no.");
+                    print("You lose. The correct answer was: " + elementNumber);
+                    print("Would you like to continue playing? Enter [1] for yes, and [2] for no.");
                     int again = scn.nextInt();
                     if (again == 1) {
                         game();
                     } else if (again == 2) {
-                        System.out.println("Good bye.");
+                        print("Good bye.");
                         System.exit(0);
                     }
                 }
@@ -66,15 +69,15 @@ public class PeriodicGame { //Starts class PeriodicGame
         } else if (gameType.toLowerCase().contains("ele".toLowerCase()) || gameType.toLowerCase().contains("nam")) {
             /*If user enters any text containing "ele" or "nam", start Element Name game.
               ELEMENT GAME*/
-            System.out.println("In this game, you need to enter the name of the element represented by the atomic number to win."
+            print("In this game, you need to enter the name of the element represented by the atomic number to win."
                     + "\nYou have " + guessCount + " tries. Good luck."
                     + "\nThe atomic number is: " + elementNumber);
             while(guessCount > 0) {
                 guessCount--;
                 String eleGuess = scn.nextLine();
                 if(eleGuess.toLowerCase().equals(elementName.toLowerCase())) {
-                    System.out.println("You won! The Element with Atomic Number " + elementNumber + " is " + elementName + ".");
-                    System.out.println("Would you like to continue playing?");
+                    print("You won! The Element with Atomic Number " + elementNumber + " is " + elementName + ".");
+                    print("Would you like to continue playing?");
                     String again = scn.nextLine();
                     if (again.toLowerCase().contains("y".toLowerCase())) { //If answer has "y" in it, interpret as yes.
                         // Too many variations of "Yeah","Yes","Yah","Ya","etc"
@@ -84,22 +87,22 @@ public class PeriodicGame { //Starts class PeriodicGame
                         System.exit(0);
                     }
                     } else {
-                    System.out.println("Not quite. " + guessCount + " guesses left.");
+                    print("Not quite. " + guessCount + " guesses left.");
                     } if (guessCount == 0) {
-                    System.out.println("You lose. The correct answer was: " + elementName);
-                    System.out.println("Would you like to continue playing?");
+                    print("You lose. The correct answer was: " + elementName);
+                    print("Would you like to continue playing?");
 
                     String again = scn.nextLine();
                     if (again.toLowerCase().contains("y".toLowerCase())) {
                         game();
                     } else if (again.toLowerCase().contains("n".toLowerCase())) {
-                        System.out.println("Good bye.");
+                        print("Good bye.");
                         System.exit(0);
                     }
                 }
             }
         } else {
-            System.out.println(gameType + " is not an option. Try again.");
+            print(gameType + " is not an option. Try again.");
             game();
         }
     }
