@@ -27,7 +27,7 @@ public class PeriodicGame { //Starts class PeriodicGame
         int elementNumber = (int) (Math.random() * elementLength); //Pulls random number from elementLength()
         String elementName = elementList[elementNumber]; //Converts number back to string for initial input.
 
-        System.out.println("Which do you need practice with, Atomic Numbers, or Element Names?" + elementLength);
+        System.out.println("Which do you need practice with, Atomic Numbers, or Element Names?");
         String gameType = scn.nextLine();
         if (gameType.toLowerCase().contains("atom".toLowerCase()) || gameType.toLowerCase().contains("num".toLowerCase())) {
             /*If user enters any text containing "atom" or "num", start Atomic Number game.
