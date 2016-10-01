@@ -2,13 +2,14 @@ import java.util.Scanner; //Text input
 
 public class PeriodicGame { //Starts class PeriodicGame
     public static void main(String[] args) { //Starts main method
-        print("There are 118 elements. How many do you know?"); //Displays text to user
+        System.out.println("There are 118 elements. How many do you know?");//Displays text to user
         game(); //Calls game method to allow for recursion.
     }
     private static void print(String s){ //I am far too lazy to type System.out.println(); this man times. This ought to speed it up.
         System.out.println(s);
     }
-    private static void stringRepeat() { //Removes four separate code blocks by making one method.
+
+    private static void gameRepeat() { //Removes four separate code blocks by making one method.
         Scanner stringRep = new Scanner(System.in);
         print("Would you like to continue playing?");
         String again = stringRep.nextLine().toLowerCase();
@@ -17,8 +18,10 @@ public class PeriodicGame { //Starts class PeriodicGame
             game();
         } else if (again.contains("n")) { //If answer has "n", interpret as no.
             // Look up three lines for reasoning.
-            System.exit(0);
             print("Good bye.");
+        } else {
+            print("Not an answer, please try again.");
+            gameRepeat();
         }
     }
     private static void game() { //Game method
@@ -42,8 +45,8 @@ public class PeriodicGame { //Starts class PeriodicGame
         int elementLength = elementList.length; //Determines length of elementList{}
         int elementNumber = (int) (Math.random() * elementLength); //Pulls random number from elementLength()
         String elementName = elementList[elementNumber]; //Converts number back to string for initial input.
-
-        print("Which do you need practice with, Atomic Numbers, or Element Names?");
+        String info = "For more info on " + elementName + ", please visit https://en.wikipedia.org/wiki/" + elementName +".";
+                print("Which do you need practice with, Atomic Numbers, or Element Names?");
         String gameType = scn.nextLine().toLowerCase();
         if (gameType.contains("atom") || gameType.contains("num")) {
             /*If user enters any text containing "atom" or "num", start Atomic Number game.
@@ -56,13 +59,15 @@ public class PeriodicGame { //Starts class PeriodicGame
                 int numGuess = scn.nextInt();
                 if (numGuess == elementNumber) { // If guess = the correct number:
                     print("You got it! The atomic number for " + elementName + " is " + elementNumber + "!");
-                    stringRepeat(); //Call repeat method.
+                    print(info);
+                    gameRepeat(); //Call repeat method.
                 } else {
                     print("Not quite right. " + guessCount + " guesses remaining.");
                 }
                 if (guessCount == 0) {
                     print("You lose. The correct answer was: " + elementNumber);
-                    stringRepeat();
+                    print(info);
+                    gameRepeat();
                 }
             }
         } else if (gameType.toLowerCase().contains("ele") || gameType.toLowerCase().contains("nam")) {
@@ -73,15 +78,17 @@ public class PeriodicGame { //Starts class PeriodicGame
                     + "\nThe atomic number is: " + elementNumber);
             while(guessCount > 0) {
                 guessCount--;
-                String eleGuess = scn.nextLine().toLowerCase();
+                String eleGuess = scn.nextLine();
                 if(eleGuess.equals(elementName)) {
                     print("You won! The Element with Atomic Number " + elementNumber + " is " + elementName + ".");
-                    stringRepeat();
+                    print(info);
+                    gameRepeat();
                     } else {
                     print("Not quite. " + guessCount + " guesses left.");
                     } if (guessCount == 0) {
                     print("You lose. The correct answer was: " + elementName);
-                    stringRepeat();
+                    print(info);
+                    gameRepeat();
                 }
             }
         } else { //If input is not one of the options, do this:
