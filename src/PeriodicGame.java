@@ -11,13 +11,14 @@ public class PeriodicGame { //Starts class PeriodicGame
     private static void stringRepeat() { //Removes four separate code blocks by making one method.
         Scanner stringRep = new Scanner(System.in);
         print("Would you like to continue playing?");
-        String again = stringRep.nextLine();
-        if (again.toLowerCase().contains("y".toLowerCase())) { //If answer has "y" in it, interpret as yes.
-            // Too many variations of "Yeah","Yes","Yah","Ya","etc"
+        String again = stringRep.nextLine().toLowerCase();
+        if (again.contains("y")) { //If answer has "y" in it, interpret as yes.
+            // Too many variations of "Yeah","Yes","Yah","Ya", etc
             game();
-        } else if (again.toLowerCase().contains("n".toLowerCase())) { //If answer has "n", interpret as no.
+        } else if (again.contains("n")) { //If answer has "n", interpret as no.
             // Look up three lines for reasoning.
             System.exit(0);
+            print("Good bye.");
         }
     }
     private static void game() { //Game method
@@ -43,8 +44,8 @@ public class PeriodicGame { //Starts class PeriodicGame
         String elementName = elementList[elementNumber]; //Converts number back to string for initial input.
 
         print("Which do you need practice with, Atomic Numbers, or Element Names?");
-        String gameType = scn.nextLine();
-        if (gameType.toLowerCase().contains("atom".toLowerCase()) || gameType.toLowerCase().contains("num".toLowerCase())) {
+        String gameType = scn.nextLine().toLowerCase();
+        if (gameType.contains("atom") || gameType.contains("num")) {
             /*If user enters any text containing "atom" or "num", start Atomic Number game.
             ATOMIC GAME */
             print("In this game, you have to enter the atomic number of the element to win."
@@ -64,7 +65,7 @@ public class PeriodicGame { //Starts class PeriodicGame
                     stringRepeat();
                 }
             }
-        } else if (gameType.toLowerCase().contains("ele".toLowerCase()) || gameType.toLowerCase().contains("nam")) {
+        } else if (gameType.toLowerCase().contains("ele") || gameType.toLowerCase().contains("nam")) {
             /*If user enters any text containing "ele" or "nam", start Element Name game.
               ELEMENT GAME*/
             print("In this game, you need to enter the name of the element represented by the atomic number to win."
@@ -72,8 +73,8 @@ public class PeriodicGame { //Starts class PeriodicGame
                     + "\nThe atomic number is: " + elementNumber);
             while(guessCount > 0) {
                 guessCount--;
-                String eleGuess = scn.nextLine();
-                if(eleGuess.toLowerCase().equals(elementName.toLowerCase())) {
+                String eleGuess = scn.nextLine().toLowerCase();
+                if(eleGuess.equals(elementName)) {
                     print("You won! The Element with Atomic Number " + elementNumber + " is " + elementName + ".");
                     stringRepeat();
                     } else {
